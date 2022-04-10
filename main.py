@@ -33,10 +33,6 @@ tail_cords = []
 screen.fill(blue)
 current_length = 1
 while True:
-    try:
-        grid[player_x][player_y]
-    except IndexError:
-        sys.exit()
     clock.tick()
     clock.tick_busy_loop(60)
     pygame.time.wait(200)
@@ -63,6 +59,8 @@ while True:
         tail_cords.append(player_pos)
         if player_direction == "+x":
             player_x += 1
+            if player_x > 7:
+                sys.exit()
             grid[player_x][player_y] = head
         elif player_direction == "-x":
             player_x -= 1
@@ -76,6 +74,8 @@ while True:
             grid[player_x][player_y] = head
         elif player_direction == "+y":
             player_y += 1
+            if player_y > 7:
+                sys.exit()
             grid[player_x][player_y] = head
         player_pos = (player_x, player_y)
         if player_pos in tail_cords:
