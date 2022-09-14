@@ -9,6 +9,7 @@ player_length = 2
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 
+#test
 
 grid = []
 for i in range(8):
